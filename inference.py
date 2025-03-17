@@ -65,15 +65,15 @@ def run_folder(model, args, config, device, verbose=False):
             vocals_path = "{}/{}_{}.wav".format(args.store_dir, os.path.basename(path)[:-4], instr)
             sf.write(vocals_path, vocals_output, sr, subtype='FLOAT')
 
-        vocals_output = res[instruments[0]].T
-        if original_mono:
-            vocals_output = vocals_output[:, 0]
+        #vocals_output = res[instruments[0]].T
+        #if original_mono:
+        #    vocals_output = vocals_output[:, 0]
 
-        original_mix, _ = sf.read(path)
-        instrumental = original_mix - vocals_output
+        #original_mix, _ = sf.read(path)
+        #instrumental = original_mix - vocals_output
 
-        instrumental_path = "{}/{}_instrumental.wav".format(args.store_dir, os.path.basename(path)[:-4])
-        sf.write(instrumental_path, instrumental, sr, subtype='FLOAT')
+        #instrumental_path = "{}/{}_instrumental.wav".format(args.store_dir, os.path.basename(path)[:-4])
+        #sf.write(instrumental_path, instrumental, sr, subtype='FLOAT')
 
     time.sleep(1)
     print("Elapsed time: {:.2f} sec".format(time.time() - start_time))
